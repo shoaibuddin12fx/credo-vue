@@ -3,6 +3,8 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\API\UserController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -21,3 +23,21 @@ use Illuminate\Support\Facades\Route;
 Route::get('/test', function () {
     return "A";
 });
+
+
+Route::group(['prefix' => 'credo-app', 'middleware' => 'credo-app'], function () {
+
+    Route::post('login', [UserController::class, 'login']);
+
+
+    Route::group(['middleware' => 'auth:api'], function () {
+
+        Route::get('user', [UserController::class, 'getUser']);
+
+    });
+
+});
+
+
+
+
