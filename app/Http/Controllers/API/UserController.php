@@ -53,4 +53,27 @@ class UserController extends Controller
 
     }
 
+    public function saveFcmToken(Request $request){
+
+        $validator = Validator::make($request->all(), [
+            'fcm_token' => 'required',            
+        ]);
+        if ($validator->fails()) {
+            return self::failure("Fcm token not set");
+        }
+
+
+        $data = $request->all();
+
+        
+        $user = auth()->user();
+
+        $user->update([
+            'fcm_token' => $data['fcm_token']
+        ]);
+
+        return self::success("FCM Token successful", ['data' => $data ]);
+
+    }
+
 }

@@ -34,6 +34,8 @@ Route::group(['prefix' => 'credo-app', 'middleware' => 'credo-app'], function ()
     Route::group(['middleware' => 'auth:api'], function () {
 
         Route::get('user', [UserController::class, 'getUser']);
+        Route::post('save-fcm-token', [UserController::class, 'saveFcmToken']);
+        
 
         Route::group(['prefix' => 'student-affairs'], function () {
             Route::get('student-list', [StudentController::class, 'studentAffairStudentList']);
