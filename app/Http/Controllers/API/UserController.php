@@ -52,4 +52,5 @@ class UserController extends Controller
         return self::success("User successful", ['data' => ['user' => $user, 'role' => $role ] ]);
 
     }
+
 }

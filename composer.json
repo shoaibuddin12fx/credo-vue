@@ -12,6 +12,7 @@
         "laravel/passport": "^10.4",
         "laravel/sanctum": "^2.11",
         "laravel/tinker": "^2.5",
+        "nesbot/carbon": "^2.61",
         "tcg/voyager": "^1.5"
     },
     "require-dev": {
